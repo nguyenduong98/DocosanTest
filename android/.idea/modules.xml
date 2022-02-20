@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/test.iml" filepath="$PROJECT_DIR$/.idea/modules/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1189438750/test.@baronha_react-native-multiple-image-picker.iml" filepath="$PROJECT_DIR$/.idea/modules/1189438750/test.@baronha_react-native-multiple-image-picker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/test.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/test.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1189438750/test.baronha_react-native-multiple-image-picker.iml" filepath="$PROJECT_DIR$/.idea/modules/1189438750/test.baronha_react-native-multiple-image-picker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-835650004/test.react-native-image-crop-picker.iml" filepath="$PROJECT_DIR$/.idea/modules/-835650004/test.react-native-image-crop-picker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1737868781/test.react-native-image-picker.iml" filepath="$PROJECT_DIR$/.idea/modules/1737868781/test.react-native-image-picker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/78860535/test.react-native-permissions.iml" filepath="$PROJECT_DIR$/.idea/modules/78860535/test.react-native-permissions.iml" />
+    </modules>
+  </component>
+</project>
