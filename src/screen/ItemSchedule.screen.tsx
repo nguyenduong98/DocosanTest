@@ -12,11 +12,14 @@ import {ScheduleUtility} from '../utility/schedule.utility';
 
 interface IProps {
   time: number;
+  indexTime: number
 }
 
-const ItemScheduleScreen: React.FC<IProps> = ({time}) => {
+const ItemScheduleScreen: React.FC<IProps> = ({time, indexTime}) => {
   const schedules = ScheduleUtility.getScheduleByTime(data, time);
+
   const renderInformation = (schedule, numberScheduleInTime) => {
+    const statusColor = ScheduleUtility.getStatusColor(schedule.status)
     return (
       <TouchableOpacity
         key={`${schedule.appointment_id}`}
@@ -48,7 +51,9 @@ const ItemScheduleScreen: React.FC<IProps> = ({time}) => {
             </Text>
           </View>
           <View style={styles.symptom}>
-            <View style={[styles.dot, {backgroundColor: schedule.color_code}]} />
+            <View style={[styles.dot, {backgroundColor: statusColor}]}>
+              <View style={styles.centerDot} />
+            </View>
             {numberScheduleInTime < 3 && (
               <Text numberOfLines={1}>{schedule.symptom}</Text>
             )}
@@ -59,13 +64,13 @@ const ItemScheduleScreen: React.FC<IProps> = ({time}) => {
   };
 
   return (
-    <View style={styles.itemSchedule}>
+    <View style={[styles.itemSchedule, {height: indexTime < 9 ? 100 : 20}]}>
       <View style={styles.container}>
         <Text>{time < 10 ? `0${time}` : time}:00</Text>
       </View>
-      <View style={styles.schedule}>
+      <View style={[styles.schedule, {height: indexTime < 9 ? 100 : 20}]}>
         {schedules.length > 4 ? (
-          <ScrollView style={[styles.containerSchedules]} horizontal={true}>
+          <ScrollView style={styles.containerSchedules} horizontal={true}>
             {schedules.map(schedule =>
               renderInformation(schedule, schedules.length),
             )}
@@ -87,14 +92,12 @@ const styles = StyleSheet.create({
     flex: 1/8
   },
   itemSchedule: {
-    height: 100,
     flex: 1,
     flexDirection: 'row',
     paddingHorizontal: 10,
   },
   schedule: {
     borderTopWidth: 2.5,
-    height: 100,
     marginTop: 7,
     flex: 9 / 10,
     borderColor: '#DDDDDD',
@@ -137,10 +140,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   dot: {
-    width: 7,
-    height: 7,
+    width: 8,
+    height: 8,
     borderRadius: 10,
     marginRight: 5,
+    alignItems: 'center',
+    justifyContent: "center",
+  },
+  centerDot: {
+    backgroundColor: 'white',
+    width: 3,
+    height: 3,
+    borderRadius: 5
   },
   requester: {
     marginTop: 4,
